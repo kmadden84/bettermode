@@ -11,11 +11,6 @@ interface PostListProps {
   loadPage: (page: number) => void;
 }
 
-interface Reaction {
-  count: number;
-  reaction: string;
-}
-
 type AddReactionVariables = {
   input: { reaction: string };
   postId: string;
@@ -54,7 +49,6 @@ export const PostList: React.FC<PostListProps> = ({
   const handleClick = async (
     e: React.MouseEvent<HTMLButtonElement>,
     id: string,
-    reactions: Reaction[],
   ): Promise<void> => {
     e.preventDefault();
     try {
@@ -101,7 +95,7 @@ export const PostList: React.FC<PostListProps> = ({
                 aria-label="Like or Unlike"
                 title={activeReactions[id] ? 'Unlike' : 'Like'}
                 className="shrink-0 hover:cursor-pointer rounded-md mb-2"
-                onClick={(e) => handleClick(e, id, reactions)}
+                onClick={(e) => handleClick(e, id)}
                 style={{
                   backgroundImage:
                     'url(https://podders-uccbycyx.bettermode.io/icons/line/thumbs-up.svg)',
