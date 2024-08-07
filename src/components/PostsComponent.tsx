@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, QueryResult } from '@apollo/client';
 import { getPosts } from '../constants/queries.ts';
 import { PostList } from './PostList';
+import { Loader } from './common/Loader';
+import { ErrorMessage } from './common/ErrorMessage';
+import { NoPostsMessage } from './common/NoPostMessage';
 
 export interface Post {
   id: string;
@@ -21,12 +24,22 @@ interface PostsData {
   };
 }
 
+export interface PostsVariables {
+  limit: number;
+  offset: number;
+}
+
 export const PostsComponent: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const postsPerPage: number = 3;
   const previousPageRef = useRef<number>(1);
 
-  const { data, loading, error, fetchMore } = useQuery(getPosts, {
+  const {
+    data,
+    loading,
+    error,
+    fetchMore,
+  }: QueryResult<PostsData, PostsVariables> = useQuery(getPosts, {
     variables: { limit: currentPage * postsPerPage, offset: 0 },
   });
 
@@ -47,7 +60,7 @@ export const PostsComponent: React.FC = () => {
     }
   }, [currentPage, fetchMore]);
 
-  const { totalCount } = data?.posts || 0;
+  const { totalCount = 0 } = data?.posts || { totalCount: 0 };
 
   const totalPages: number = Math.ceil(totalCount / postsPerPage);
 
@@ -74,19 +87,5 @@ export const PostsComponent: React.FC = () => {
     />
   );
 };
-
-const Loader: React.FC = () => (
-  <div className="flex justify-center items-center h-40">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-  </div>
-);
-
-const ErrorMessage: React.FC<{ message: string }> = ({ message }) => (
-  <div className="text-red-500 text-center p-4">Error: {message}</div>
-);
-
-const NoPostsMessage: React.FC = () => (
-  <div className="text-gray-500 text-center p-4">No posts available.</div>
-);
 
 export default PostsComponent;
