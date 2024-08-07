@@ -4,8 +4,7 @@ A modern React application built with TypeScript and Vite, focusing on social in
 
 ## Video
 
-
-https://github.com/user-attachments/assets/d9066e9a-ef88-4a48-9a4c-41cb3bcdb5c8
+https://github.com/user-attachments/assets/3d8f8bde-911d-4cb2-9d7d-72db8f96dac0
 
 ##Images
 
