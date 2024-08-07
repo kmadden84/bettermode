@@ -21,7 +21,7 @@ https://github.com/user-attachments/assets/d9066e9a-ef88-4a48-9a4c-41cb3bcdb5c8
 3. Login with test credentials:
   - username: testaccount@test.com
   - password: Test@ccount1234
-**OR**  
+\**OR**  
 4. Create a `.env` file and add the following environment variables:
    - `VITE_AUTH_TOKEN`
      this will tbe the BeterMode Bearer Token
