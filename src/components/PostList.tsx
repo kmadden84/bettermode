@@ -52,28 +52,22 @@ export const PostList: React.FC<PostListProps> = ({
   }>({});
 
   const handleClick = async (
+    e: React.MouseEvent<HTMLButtonElement>,
     id: string,
     reactions: Reaction[],
   ): Promise<void> => {
+    e.preventDefault();
     try {
-      const hasActiveReaction = reactions.some((r) => r.count > 0);
-
-      // remove the reaction
-      if (hasActiveReaction) {
+      if (activeReactions[id]) {
+        setActiveReactions((prev) => ({ ...prev, [id]: false }));
         await removeReactionMutation({
           variables: { reaction: '+1', postId: id },
         });
-
-        //update state for the thumbs-down icon
-        setActiveReactions((prev) => ({ ...prev, [id]: true }));
-
-        // of no existing reaction, add the reaction
       } else {
+        setActiveReactions((prev) => ({ ...prev, [id]: true }));
         await addReactionMutation({
           variables: { input: { reaction: '+1' }, postId: id },
         });
-        //update state for the thumbs-up icon
-        setActiveReactions((prev) => ({ ...prev, [id]: false }));
       }
 
       // update the UI by refetching the posts
@@ -101,24 +95,32 @@ export const PostList: React.FC<PostListProps> = ({
             >
               Read more
             </Link>
-            <button
-              data-testid={`reaction-button-${id}`}
-              aria-label="Like"
-              className="shrink-0 w-full h-full hover:cursor-pointer rounded-md"
-              style={{
-                backgroundImage:
-                  'url(https://podders-uccbycyx.bettermode.io/icons/line/thumbs-up.svg)',
-                backgroundSize: 'cover',
-                backgroundColor: 'white',
-                display: 'block',
-                width: '50px',
-                height: '50px',
-                transform: 'rotate(0deg)',
-                transition: 'transform 0.3s ease-in-out',
-              }}
-            />
+            <div className="flex flex-col items-start">
+              <button
+                data-testid={`reaction-button-${id}`}
+                aria-label="Like or Unlike"
+                title={activeReactions[id] ? 'Unlike' : 'Like'}
+                className="shrink-0 hover:cursor-pointer rounded-md mb-2"
+                onClick={(e) => handleClick(e, id, reactions)}
+                style={{
+                  backgroundImage:
+                    'url(https://podders-uccbycyx.bettermode.io/icons/line/thumbs-up.svg)',
+                  backgroundSize: 'cover',
+                  backgroundColor: activeReactions[id] ? 'red' : 'white',
+                  width: '50px',
+                  height: '50px',
+                  transform: activeReactions[id]
+                    ? 'rotate(180deg)'
+                    : 'rotate(0deg)',
+                  transition: 'transform 0.3s ease-in-out',
+                }}
+              />
+              <span className="text-sm text-left">
+                {activeReactions[id] ? 'Unlike Post' : 'Like Post'}
+              </span>
+            </div>
             {reactions?.map(({ count, reaction }) => (
-              <span key={reaction}>{count}</span>
+              <span key={reaction}>Number of likes: {count}</span>
             ))}
           </div>
         ))}

@@ -2,7 +2,12 @@
   "files": [],
   "compilerOptions": {
     "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@tribeplatform/gql-client": [
+        "./node_modules/@tribeplatformgql-clientsrclibindex.ts"
+      ]
+    }
   },
   "references": [
     {

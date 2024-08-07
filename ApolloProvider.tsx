@@ -15,7 +15,8 @@ const httpLink = createHttpLink({
 // Create an auth link
 const authLink = setContext((_, { headers }) => {
   try {
-    const token = import.meta.env.VITE_AUTH_TOKEN;
+    const token =
+      localStorage.getItem('auth_token') || import.meta.env.VITE_AUTH_TOKEN;
     return {
       headers: {
         ...headers,
