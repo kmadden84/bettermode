@@ -18,15 +18,13 @@ https://github.com/user-attachments/assets/d9066e9a-ef88-4a48-9a4c-41cb3bcdb5c8
 
 1. Clone the repository
 2. Install dependencies: `yarn install`
-3. Login with test credentials:
+3. **Optional**: You can manually create a `.env` file and add the following environment variable:
+   - `VITE_AUTH_TOKEN`
+     this will be the BetterMode Bearer Token
+4. Start the development server: `yarn dev`
+5. Login with test credentials:
   - username: testaccount@test.com
   - password: Test@ccount1234
-\n**OR**  
-4. Create a `.env` file and add the following environment variables:
-   - `VITE_AUTH_TOKEN`
-     this will tbe the BeterMode Bearer Token
-5. Start the development server: `yarn dev`
-6. The bearer token is hardcoded from the .env file in `ApolloProvider.tsx`
 
 ## 🛠 Tech Stack
 
@@ -35,6 +33,7 @@ https://github.com/user-attachments/assets/d9066e9a-ef88-4a48-9a4c-41cb3bcdb5c8
 - Vite
 - Apollo Client for GraphQL
 - Jest for unit tests
+- @tribeplatform/gql-client for user authentication
 - ESLint for code quality
 
 ## 🔑 Key Features
