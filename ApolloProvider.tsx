@@ -16,7 +16,6 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   try {
     const token = import.meta.env.VITE_AUTH_TOKEN;
-    console.log('Token from env:', token); // Add this line
     return {
       headers: {
         ...headers,

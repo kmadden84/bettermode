@@ -40,7 +40,7 @@ const PostDetail: React.FC = () => {
 
   const { post }: PostData = data;
   const coverImage: Field | undefined = post?.fields?.find(
-    (field: Field) => field.key === fieldKeys.COVER_IMAGE,
+    (field: Field) => field?.key === fieldKeys.COVER_IMAGE,
   );
   const imageUrl: string | undefined =
     coverImage?.relationEntities?.medias?.[0]?.urls?.full;
@@ -51,11 +51,11 @@ const PostDetail: React.FC = () => {
         <img
           className="w-full h-64 object-cover rounded-lg mb-3"
           src={imageUrl}
-          alt={post.title}
+          alt={post?.title}
         />
       )}
-      <h1 className="text-3xl font-bold mb-3">{post.title}</h1>
-      <p className="text-gray-700">{post.description}</p>
+      <h1 className="text-3xl font-bold mb-3">{post?.title}</h1>
+      <p className="text-gray-700">{post?.description}</p>
     </div>
   );
 };

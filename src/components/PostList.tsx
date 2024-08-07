@@ -127,7 +127,7 @@ export const PostList: React.FC<PostListProps> = ({
       </div>
       {/* Pagination */}
       <div className="flex flex-wrap justify-center gap-2">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((number) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1)?.map((number) => (
           <button
             key={number}
             onClick={() => loadPage(number)}
