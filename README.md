@@ -24,6 +24,7 @@ https://github.com/user-attachments/assets/d9066e9a-ef88-4a48-9a4c-41cb3bcdb5c8
 - TypeScript
 - Vite
 - Apollo Client for GraphQL
+- Jest for unit tests
 - ESLint for code quality
 
 ## 🔑 Key Features
