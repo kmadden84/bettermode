@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { PostsComponent } from './components/PostsComponent';
 import { LoginComponent } from './components/LoginComponent';
 
@@ -12,11 +12,11 @@ export const App: React.FC = () => {
     setAuthToken(token);
   }, []);
 
-  const handleLogout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleLogout = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     localStorage.removeItem('auth_token');
     setAuthToken(null);
-  };
+  }, []);
 
   const handleLoginSuccess = (token: string) => {
     localStorage.setItem('auth_token', token);
