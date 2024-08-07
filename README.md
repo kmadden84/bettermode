@@ -7,16 +7,26 @@ A modern React application built with TypeScript and Vite, focusing on social in
 
 https://github.com/user-attachments/assets/d9066e9a-ef88-4a48-9a4c-41cb3bcdb5c8
 
+##Images
+
+![screencapture-localhost-5173-2024-08-07-17_09_04](https://github.com/user-attachments/assets/bef73ad1-1d51-43ff-893d-d39de4b1906a)
+![screencapture-localhost-5173-post-SVOYL9Tdz8ZFOqR-2024-08-07-17_09_20](https://github.com/user-attachments/assets/6db5932f-f5bf-4db7-9978-ec08e194d559)
+![screencapture-localhost-5173-2024-08-07-17_09_15](https://github.com/user-attachments/assets/c877a434-6d92-4288-82cf-89e46899f475)
+
 
 ## 🚀 Quick Start
 
 1. Clone the repository
 2. Install dependencies: `yarn install`
-3. Create a `.env` file and add the following environment variables:
+3. Login with test credentials:
+  - username: testaccount@test.com
+  - password: Test@ccount1234
+**OR**  
+4. Create a `.env` file and add the following environment variables:
    - `VITE_AUTH_TOKEN`
      this will tbe the BeterMode Bearer Token
-4. Start the development server: `yarn dev`
-5. The bearer token is hardcoded from the .env file in `ApolloProvider.tsx`
+5. Start the development server: `yarn dev`
+6. The bearer token is hardcoded from the .env file in `ApolloProvider.tsx`
 
 ## 🛠 Tech Stack
 
