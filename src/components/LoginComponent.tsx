@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { TribeClient } from '@tribeplatform/gql-client/client';
 
 const client = new TribeClient({
@@ -13,7 +12,6 @@ interface LoginComponentProps {
 export const LoginComponent: React.FC<LoginComponentProps> = ({
   onLoginSuccess,
 }) => {
-  const navigate = useNavigate();
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
