@@ -101,24 +101,22 @@ export const PostList: React.FC<PostListProps> = ({
             >
               Read more
             </Link>
-            <span
+            <button
+              data-testid={`reaction-button-${id}`}
+              aria-label="Like"
               className="shrink-0 w-full h-full hover:cursor-pointer rounded-md"
-              onClick={() => handleClick(id, reactions)}
               style={{
-                backgroundImage: `url("https://podders-uccbycyx.bettermode.io/icons/line/thumbs-up.svg")`,
+                backgroundImage:
+                  'url(https://podders-uccbycyx.bettermode.io/icons/line/thumbs-up.svg)',
                 backgroundSize: 'cover',
-                backgroundColor: reactions?.some((r) => r?.count > 0)
-                  ? 'blue'
-                  : 'white',
+                backgroundColor: 'white',
                 display: 'block',
                 width: '50px',
                 height: '50px',
-                transform: activeReactions[id]
-                  ? 'rotate(180deg)'
-                  : 'rotate(0deg)',
+                transform: 'rotate(0deg)',
                 transition: 'transform 0.3s ease-in-out',
               }}
-            ></span>
+            />
             {reactions?.map(({ count, reaction }) => (
               <span key={reaction}>{count}</span>
             ))}
