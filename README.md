@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/6d0a4430-5a72-4555-99f1-6b877a82b287
    - `VITE_AUTH_TOKEN`
      this will tbe the BeterMode Bearer Token
 4. Start the development server: `yarn dev`
-5. The bearer token is hardcoded in `ApolloProvider.tsx`
+5. The bearer token is hardcoded from the .env file in `ApolloProvider.tsx`
 
 ## 🛠 Tech Stack
 
@@ -27,8 +27,7 @@ https://github.com/user-attachments/assets/6d0a4430-5a72-4555-99f1-6b877a82b287
 ## 🔑 Key Features
 
 - Post listings, routing to post detail page
-- Reaction system (with animations and color changes to reflect reaction state
-- [Add other key features of your app]
+- Reaction system (with animations and color changes to reflect the reaction state
 
 ## 📚 Available Scripts
 
