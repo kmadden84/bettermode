@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useQuery } from '@apollo/client';
-import { getPosts, getBearerToken } from '../constants/queries.ts';
+import { getPosts } from '../constants/queries.ts';
 import { PostList } from './PostList';
 
 export interface Post {
