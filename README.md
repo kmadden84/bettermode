@@ -49,12 +49,21 @@ https://github.com/user-attachments/assets/3d8f8bde-911d-4cb2-9d7d-72db8f96dac0
 
 ## 🧩 Project Structure
 
-src/
-├── components/
-│ ├── PostList.tsx
-│ └── [Other components]
-├── graphql/
-│ ├── mutations.ts
-│ └── queries.ts
-├── App.tsx
-└── main.tsx
+bettermode/
+├── src/
+│ ├── components/
+│ │ ├── common/
+│ │ │ ├── ErrorMessage.tsx
+│ │ │ ├── Loader.tsx
+│ │ │ └── NoPostMessage.tsx
+│ │ ├── PostsComponent.tsx
+│ │ └── PostList.tsx
+│ ├── constants/
+│ │ └── queries.ts
+│ └── App.tsx
+├── public/
+│ ├── index.html
+│ └── ...
+├── package.json
+├── tsconfig.json
+└── README.md
